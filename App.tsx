@@ -22,8 +22,8 @@ const App: React.FC = () => {
         <WhoIsHe />
 
         <section id="story" className="bg-white text-black py-32 px-16 min-h-screen">
-          <h2 className="text-[4rem] font-bold mb-8"><ScrambleText text="STORY" /></h2>
-          <p className="text-xl max-w-3xl leading-relaxed opacity-80">
+          <h2 className="page-title mb-8"><ScrambleText text="STORY" /></h2>
+          <p className="body-text max-w-3xl opacity-80">
             I am a creative developer and designer focused on building immersive web experiences.
             Transitioning from traditional design to interactive code, I explore the boundaries
             between static visuals and dynamic user interfaces.
@@ -34,12 +34,12 @@ const App: React.FC = () => {
         <Journal />
 
         <section id="media" className="bg-black text-white py-32 px-16 min-h-screen">
-          <h2 className="text-[4rem] font-bold mb-8"><ScrambleText text="MEDIA" /></h2>
-          <p className="opacity-60">Media content loading...</p>
+          <h2 className="page-title mb-8"><ScrambleText text="MEDIA" /></h2>
+          <p className="body-text opacity-60">Media content loading...</p>
         </section>
 
         <section id="gallery" className="bg-white text-black py-32 px-16 min-h-screen">
-          <h2 className="text-[4rem] font-bold mb-8"><ScrambleText text="GALLERY" /></h2>
+          <h2 className="page-title mb-8"><ScrambleText text="GALLERY" /></h2>
           <div className="grid grid-cols-2 gap-4 h-[600px]">
             <div className="bg-gray-200 w-full h-full"></div>
             <div className="bg-gray-300 w-full h-full"></div>
@@ -47,25 +47,25 @@ const App: React.FC = () => {
         </section>
 
         <section id="about" className="bg-black text-white py-32 px-16 min-h-screen">
-          <h2 className="text-[4rem] font-bold mb-8"><ScrambleText text="ABOUT" /></h2>
-          <p className="opacity-60">More detailed about section content goes here.</p>
+          <h2 className="page-title mb-8"><ScrambleText text="ABOUT" /></h2>
+          <p className="body-text opacity-60">More detailed about section content goes here.</p>
         </section>
 
         <section id="career" className="bg-white text-black py-32 px-16 min-h-screen">
-          <h2 className="text-[4rem] font-bold mb-8"><ScrambleText text="CAREER" /></h2>
+          <h2 className="page-title mb-8"><ScrambleText text="CAREER" /></h2>
           <div className="grid grid-cols-2 gap-4 h-[600px]">
             <div className="bg-gray-100 w-full h-full p-8 flex flex-col justify-between hover:bg-gray-200 transition-all duration-300 group">
-              <div className="text-sm font-mono opacity-50">2023 — PRESENT</div>
+              <div className="label opacity-50">2023 — PRESENT</div>
               <div>
-                <h3 className="text-3xl font-bold mb-2 group-hover:translate-x-2 transition-transform">Senior Developer</h3>
-                <p className="text-xl opacity-60">Tech Giants Inc.</p>
+                <h3 className="mb-2 group-hover:translate-x-2 transition-transform">Senior Developer</h3>
+                <p className="body-text opacity-60">Tech Giants Inc.</p>
               </div>
             </div>
             <div className="bg-gray-100 w-full h-full p-8 flex flex-col justify-between hover:bg-gray-200 transition-all duration-300 group">
-              <div className="text-sm font-mono opacity-50">2021 — 2023</div>
+              <div className="label opacity-50">2021 — 2023</div>
               <div>
-                <h3 className="text-3xl font-bold mb-2 group-hover:translate-x-2 transition-transform">Frontend Engineer</h3>
-                <p className="text-xl opacity-60">Creative Solutions</p>
+                <h3 className="mb-2 group-hover:translate-x-2 transition-transform">Frontend Engineer</h3>
+                <p className="body-text opacity-60">Creative Solutions</p>
               </div>
             </div>
           </div>

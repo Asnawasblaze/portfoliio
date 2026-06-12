@@ -46,7 +46,7 @@ const ScrambleText: React.FC<ScrambleTextProps> = ({
         style={{
           width: `${containerChars}ch`,
           transition: 'width 280ms ease',
-          fontFamily: '"JetBrains Mono", monospace'
+          fontFamily: 'var(--font-ui)'
         }}
       >
         {displayText.split('').map((char, index) => {
