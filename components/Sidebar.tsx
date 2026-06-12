@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import ScrambleText from './ScrambleText';
+import BatAnimation from './BatAnimation';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -50,6 +51,20 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         audioRef.current.play();
       }
       setIsPlaying(!isPlaying);
+    }
+  };
+
+  const prevTrack = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      if (isPlaying) audioRef.current.play();
+    }
+  };
+
+  const nextTrack = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      if (isPlaying) audioRef.current.play();
     }
   };
 
@@ -182,51 +197,51 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       {/* Left Sidebar Drawer */}
       <aside
         ref={sidebarRef}
-        className="fixed left-0 top-0 bottom-0 w-full max-w-[500px] bg-black z-[999] text-white transform -translate-x-full hidden flex-row border-r border-[#1c1c1c]"
+        className="fixed left-0 top-0 bottom-0 w-full max-w-[700px] bg-black z-[999] text-white transform -translate-x-full hidden flex-row border-r border-[#1c1c1c]"
       >
         {/* Main Content Area (Left Pane) */}
         <div className="flex-1 flex flex-col justify-between h-full overflow-y-auto no-scrollbar">
           
           {/* DISCOVER SECTION */}
-          <div className="flex border-b border-[#1c1c1c] pt-24 pb-12 px-8 flex-1 min-h-0">
+          <div className="flex border-b border-[#1c1c1c] pt-20 pb-8 px-8 flex-1 min-h-0">
             {/* Left label column */}
-            <div className="w-[120px] shrink-0 font-mono text-[10px] tracking-[0.2em] text-zinc-400 flex items-start pt-[14px]">
+            <div className="w-[100px] md:w-[120px] shrink-0 font-mono text-[10px] tracking-[0.2em] text-zinc-400 flex items-start pt-[14px]">
               <span className="inline-block w-1.5 h-1.5 bg-zinc-400 mr-2 mt-[3px]"></span>
               <ScrambleText text="DISCOVER" />
             </div>
             
-            {/* Right content column - Navigation menu */}
-            <div className="flex-1 flex flex-col justify-center">
-              <ul className="flex flex-col gap-4">
+            {/* Right content column - Navigation menu starting from top */}
+            <div className="flex-1 flex flex-col justify-start pt-1">
+              <ul className="flex flex-col gap-1.5">
                 {menuItems.map((item, idx) => {
                   const isHighlighted = hoveredIdx !== null 
                     ? hoveredIdx === idx 
                     : activeSection === item.section;
 
                   return (
-                    <li key={idx} className="relative flex items-center h-16">
-                      <div className="flex items-center gap-3">
+                    <li key={idx} className="relative flex items-center">
+                      <div className="flex items-start gap-4">
                         <button
                           onMouseEnter={() => setHoveredIdx(idx)}
                           onMouseLeave={() => setHoveredIdx(null)}
                           onClick={() => handleLinkClick(item.section)}
-                          className={`group relative text-left transition-all duration-200 select-none ${
+                          className={`group relative text-left transition-all duration-150 select-none ${
                             isHighlighted 
-                              ? 'bg-[#CCFF00] text-black pl-5 pr-8 py-2 font-black' 
-                              : 'text-white hover:text-[#CCFF00] font-bold py-2'
+                              ? 'bg-[#CCFF00] text-black pl-4 pr-6 py-1 font-black' 
+                              : 'text-white hover:text-[#CCFF00] font-bold py-1'
                           }`}
                           style={isHighlighted ? { 
                             clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%)'
                           } : undefined}
                         >
-                          <span className="text-[3.2rem] leading-[0.85] tracking-tighter uppercase font-display font-black block !bg-transparent !text-inherit">
+                          <span className="text-[3.6rem] md:text-[4.2rem] leading-[0.85] tracking-tighter uppercase font-display font-black block !bg-transparent !text-inherit">
                             <ScrambleText text={item.label} className="!bg-transparent !text-inherit" />
                           </span>
                         </button>
                         
-                        {/* Stacked page indicator */}
+                        {/* Stacked page indicator aligned to top-right of the block */}
                         {isHighlighted && (
-                          <div className="flex flex-col font-mono text-[9px] leading-tight text-[#CCFF00] tracking-wider font-bold">
+                          <div className="flex flex-col font-mono text-[9px] leading-tight text-[#CCFF00] tracking-wider font-bold mt-1.5">
                             <span>PAGE</span>
                             <span>{item.page}</span>
                           </div>
@@ -240,9 +255,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           </div>
 
           {/* CONNECT SECTION */}
-          <div className="flex border-b border-[#1c1c1c] py-8 px-8 shrink-0">
+          <div className="flex border-b border-[#1c1c1c] py-6 px-8 shrink-0">
             {/* Left label column */}
-            <div className="w-[120px] shrink-0 font-mono text-[10px] tracking-[0.2em] text-zinc-400 flex items-start pt-1">
+            <div className="w-[100px] md:w-[120px] shrink-0 font-mono text-[10px] tracking-[0.2em] text-zinc-400 flex items-start pt-1">
               <span className="inline-block w-1.5 h-1.5 bg-zinc-400 mr-2 mt-[3px]"></span>
               <ScrambleText text="CONNECT" />
             </div>
@@ -255,41 +270,79 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
               <a href="#" className="font-mono text-xs font-bold tracking-widest text-zinc-300 hover:text-[#CCFF00] transition-colors w-fit">
                 <ScrambleText text="DISCORD" className="!bg-transparent !text-inherit" />
               </a>
-            </div>
-          </div>
-
-          {/* BUY ON SECTION */}
-          <div className="flex border-b border-[#1c1c1c] py-8 px-8 shrink-0">
-            {/* Left label column */}
-            <div className="w-[120px] shrink-0 font-mono text-[10px] tracking-[0.2em] text-zinc-400 flex items-start pt-1.5">
-              <span className="inline-block w-1.5 h-1.5 bg-zinc-400 mr-2 mt-[3px]"></span>
-              <ScrambleText text="BUY ON" />
-            </div>
-            
-            {/* Right content column */}
-            <div className="flex-1 flex items-center">
-              <a href="#" className="font-mono text-xs font-bold tracking-widest text-zinc-300 hover:text-[#CCFF00] transition-colors flex items-center w-fit">
-                {/* SVG OpenSea-like Sailboat Icon */}
-                <svg className="w-5 h-5 mr-2 text-inherit inline-block align-middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4 18C4 18 6 15 12 15C18 15 20 18 20 18" strokeLinecap="round"/>
-                  <path d="M12 3V15" strokeLinecap="round"/>
-                  <path d="M12 5C12 5 17 8 12 11" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <ScrambleText text="OPENSEA" className="!bg-transparent !text-inherit" />
+              <a href="#" className="font-mono text-xs font-bold tracking-widest text-zinc-300 hover:text-[#CCFF00] transition-colors w-fit">
+                <ScrambleText text="INSTAGRAM" className="!bg-transparent !text-inherit" />
+              </a>
+              <a href="#" className="font-mono text-xs font-bold tracking-widest text-zinc-300 hover:text-[#CCFF00] transition-colors w-fit">
+                <ScrambleText text="LINKEDIN" className="!bg-transparent !text-inherit" />
+              </a>
+              <a href="#" className="font-mono text-xs font-bold tracking-widest text-zinc-300 hover:text-[#CCFF00] transition-colors w-fit">
+                <ScrambleText text="GITHUB" className="!bg-transparent !text-inherit" />
               </a>
             </div>
           </div>
 
+          {/* PLAYLIST SECTION */}
+          <div className="flex border-b border-[#1c1c1c] py-6 px-8 shrink-0">
+            {/* Left label column */}
+            <div className="w-[100px] md:w-[120px] shrink-0 font-mono text-[10px] tracking-[0.2em] text-zinc-400 flex items-start pt-1.5">
+              <span className="inline-block w-1.5 h-1.5 bg-zinc-400 mr-2 mt-[3px]"></span>
+              <ScrambleText text="PLAYLIST" />
+            </div>
+            
+            {/* Right content column - Controls */}
+            <div className="flex-1 flex items-center gap-4">
+              {/* Prev Button */}
+              <button 
+                onClick={prevTrack} 
+                className="text-zinc-300 hover:text-[#CCFF00] transition-colors p-1"
+                title="Previous Track"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+                </svg>
+              </button>
+              
+              {/* Play/Pause Button */}
+              <button 
+                onClick={togglePlay} 
+                className="text-zinc-300 hover:text-[#CCFF00] transition-colors p-1"
+                title={isPlaying ? "Pause" : "Play"}
+              >
+                {isPlaying ? (
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                  </svg>
+                ) : (
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                )}
+              </button>
+              
+              {/* Next Button */}
+              <button 
+                onClick={nextTrack} 
+                className="text-zinc-300 hover:text-[#CCFF00] transition-colors p-1"
+                title="Next Track"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
           {/* FOOTER SECTION */}
-          <div className="flex py-6 px-8 shrink-0 items-center">
+          <div className="flex py-5 px-8 shrink-0 items-center">
             {/* Left column - language */}
-            <div className="w-[120px] shrink-0 font-mono text-[10px] tracking-wider text-zinc-400 hover:text-[#CCFF00] transition-colors cursor-pointer">
-              <ScrambleText text="US-EN  ⌄" />
+            <div className="w-[100px] md:w-[120px] shrink-0 font-mono text-[10px] tracking-wider text-zinc-400 hover:text-[#CCFF00] transition-colors cursor-pointer">
+              <ScrambleText text="IN-EN  ⌄" />
             </div>
             
             {/* Right column - copyright */}
             <div className="flex-1 font-mono text-[10px] text-zinc-600">
-              <ScrambleText text="© 2022" />
+              <ScrambleText text="© 2025" />
             </div>
           </div>
 
@@ -307,17 +360,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
             </button>
           </div>
 
-          {/* Center Crosshair Icon (Centered absolute on the vertical border line) */}
-          <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none text-white">
-            <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 16H28" stroke="currentColor" strokeWidth="1" />
-              <path d="M16 4V28" stroke="currentColor" strokeWidth="1" />
-              <path d="M16 4L13 7H19L16 4Z" fill="currentColor" />
-              <path d="M16 28L13 25H19L16 28Z" fill="currentColor" />
-              <path d="M4 16L7 13V19L4 16Z" fill="currentColor" />
-              <path d="M28 16L25 13V19L28 16Z" fill="currentColor" />
-              <rect x="14" y="14" width="4" height="4" transform="rotate(45 16 16)" fill="currentColor" />
-            </svg>
+          {/* Center - Bat Logo (replaces the crosshair icon, scaled to fit the 60px strip width) */}
+          <div className="flex-1 flex items-center justify-center scale-[0.8] origin-center text-white">
+            <BatAnimation />
           </div>
 
           {/* Bottom Audio Visualizer Button Box */}
