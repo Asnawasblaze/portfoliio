@@ -14,7 +14,7 @@ const Keepers: React.FC = () => {
   return (
     <section className="bg-white text-black min-h-[1200px] w-full">
       <div className="py-24 px-16 max-w-[1400px] mx-auto relative">
-        <h2 className="text-[8rem] font-black tracking-tighter mb-16 leading-[0.9]">KEEPERS</h2>
+        <h2 className="page-title mb-16">KEEPERS</h2>
 
         <div className="relative min-h-[1200px] w-full hidden lg:block">
           {cards.map((card, idx) => (
@@ -24,7 +24,7 @@ const Keepers: React.FC = () => {
             >
               <div className="absolute top-6 left-6 flex items-center gap-2 z-10">
                 <div className="w-2 h-2 bg-neonGreen"></div>
-                <span className="text-sm font-bold tracking-wider text-black/80 group-hover:text-black">
+                <span className="label text-black/80 group-hover:text-black">
                   <ScrambleText text={card.title} />
                 </span>
               </div>
@@ -39,7 +39,7 @@ const Keepers: React.FC = () => {
             <div key={idx} className="w-full aspect-[3/4] relative bg-white border border-gray-200 overflow-hidden shadow-lg">
               <div className="absolute top-6 left-6 flex items-center gap-2 z-10">
                 <div className="w-2 h-2 bg-neonGreen"></div>
-                <span className="text-sm font-bold tracking-wider"><ScrambleText text={card.title} /></span>
+                <span className="label"><ScrambleText text={card.title} /></span>
               </div>
               <div className={`w-full h-full bg-gradient-to-br ${card.gradient}`}></div>
             </div>

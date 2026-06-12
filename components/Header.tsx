@@ -31,8 +31,11 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
       const vh = window.innerHeight;
       const sectionIndex = Math.floor((scrollY + 100) / vh);
 
-      // 0=Hero(Dark), 1=Story(Light), 2=Protocol(Dark), 3=Journal(Light), etc.
-      setIsDark(sectionIndex % 2 === 0);
+      if (sectionIndex === 0 || sectionIndex === 1) {
+        setIsDark(false);
+      } else {
+        setIsDark(sectionIndex % 2 === 0);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -50,7 +53,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
 
       <div className="flex-1 flex justify-center">
         <nav>
-          <ul className={`flex gap-10 list-none text-xs font-medium tracking-wider ${textColorClass}`}>
+          <ul className={`flex gap-10 list-none text-xs tracking-wider nav-item ${textColorClass}`}>
             <li><a href="#project"><ScrambleText text="IDEAS" variant="decrypt-mask" autoPlay /></a></li>
             <li><a href="#keep"><ScrambleText text="PROJECTS" variant="decrypt-mask" autoPlay /></a></li>
             <li><a href="#factions"><ScrambleText text="CERTIFICATES" variant="decrypt-mask" autoPlay /></a></li>

@@ -1,0 +1,9 @@
+/* Import typography system - all font definitions and base styles are in typography-system.css */
+/* This file contains component-specific overrides and custom styles only */
+
+/* Hero section specific overrides */
+#hero {
+  color: #000000;
+  background-color: #ecebe7;
+  font-family: var(--font-display);
+}

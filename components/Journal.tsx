@@ -3,7 +3,7 @@ import React from 'react';
 const Journal: React.FC = () => {
   return (
     <section id="journal" className="bg-white text-black py-32 overflow-hidden">
-      <h2 className="text-[4rem] font-bold mb-12 px-16">JOURNAL</h2>
+      <h2 className="page-title mb-12 px-16">JOURNAL</h2>
       
       <div className="logo-loop-container w-full py-8 group">
         <style>{`

@@ -1,0 +1,511 @@
+/* ============================================================================
+   KPRVerse Typography & Font System for Asnawas Portfolio
+   Based on ABC Whyte Inktrap & ABC Whyte Mono Variable Fonts
+   ============================================================================ */
+
+/* ============================================================================
+   1. @FONT-FACE DECLARATIONS
+   ============================================================================ */
+
+/* ABC Whyte Inktrap (Variable Font) - Display & Headlines */
+@font-face {
+  font-family: "ABC Whyte Inktrap";
+  src: url('/fonts/ABCWhyteInktrapVariable-Trial-1.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ABC Whyte (Variable Font) - Body & UI Text */
+@font-face {
+  font-family: "ABC Whyte";
+  src: url('/fonts/ABCWhyteVariable-Trial.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ABC Whyte Mono (Variable Font) - UI Labels & Code */
+@font-face {
+  font-family: "ABC Whyte Mono";
+  src: url('/fonts/ABCWhyteSemi-MonoInktrap-Regular-Trial.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================================
+   2. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+   ============================================================================ */
+
+:root {
+  /* -------------------------------------------------------
+     Font Families
+     ------------------------------------------------------- */
+  --font-display: "ABC Whyte Inktrap", sans-serif;
+  --font-body: "ABC Whyte", sans-serif;
+  --font-ui: "ABC Whyte Mono", monospace;
+
+  /* -------------------------------------------------------
+     Hero/Title Text (Large Scale Display)
+     ------------------------------------------------------- */
+  --fs-hero: clamp(7rem, 10vw, 14rem);
+  --lh-hero: 0.82;
+  --ts-hero: -0.08em;
+  --fw-hero: 800;
+  --opsz-hero: 0.5;
+
+  /* -------------------------------------------------------
+     Page Title (Large Heading)
+     ------------------------------------------------------- */
+  --fs-title: clamp(4rem, 8vw, 10rem);
+  --lh-title: 0.84;
+  --ts-title: -0.07em;
+  --fw-title: 800;
+  --opsz-title: 0.5;
+
+  /* -------------------------------------------------------
+     Navigation Items
+     ------------------------------------------------------- */
+  --fs-nav: clamp(3rem, 6vw, 6rem);
+  --lh-nav: 0.85;
+  --ts-nav: -0.07em;
+  --fw-nav: 700;
+  --opsz-nav: 0.5;
+
+  /* -------------------------------------------------------
+     Section Headings (H1-H3)
+     ------------------------------------------------------- */
+  --fs-h1: clamp(2.5rem, 5vw, 5rem);
+  --lh-h1: 0.88;
+  --ts-h1: -0.06em;
+  --fw-h1: 700;
+  --opsz-h1: 0.5;
+
+  --fs-h2: clamp(1.8rem, 4vw, 3.5rem);
+  --lh-h2: 0.9;
+  --ts-h2: -0.05em;
+  --fw-h2: 700;
+  --opsz-h2: 0.5;
+
+  --fs-h3: clamp(1.2rem, 2.5vw, 2.2rem);
+  --lh-h3: 0.95;
+  --ts-h3: -0.03em;
+  --fw-h3: 600;
+  --opsz-h3: 0.5;
+
+  /* -------------------------------------------------------
+     Body Text
+     ------------------------------------------------------- */
+  --fs-body: clamp(0.95rem, 1.2vw, 1.1rem);
+  --lh-body: 1.6;
+  --ts-body: 0em;
+  --fw-body: 350;
+  --opsz-body: 0.5;
+
+  /* -------------------------------------------------------
+     Labels / Meta Text
+     ------------------------------------------------------- */
+  --fs-label: clamp(0.65rem, 0.8vw, 0.85rem);
+  --lh-label: 1.0;
+  --ts-label: 0.04em;
+  --fw-label: 500;
+  --opsz-label: n/a;
+
+  /* -------------------------------------------------------
+     Small Text / Caption
+     ------------------------------------------------------- */
+  --fs-caption: clamp(0.75rem, 0.9vw, 0.9rem);
+  --lh-caption: 1.4;
+  --ts-caption: 0.02em;
+  --fw-caption: 400;
+  --opsz-caption: 0.5;
+
+  /* -------------------------------------------------------
+     Color Palette (KPRVerse Style)
+     ------------------------------------------------------- */
+  --color-bg: #08060E;
+  --color-bg-light: #ecebe7;
+  --color-primary: #6D64A3;
+  --color-text: #F4F4F4;
+  --color-text-bold: #FFFFFF;
+  --color-text-dark: #000000;
+  --color-accent-neon: #00FFFF;
+  --color-meta-gray: #A0A0A0;
+
+  /* -------------------------------------------------------
+     Font Smoothing & Feature Settings
+     ------------------------------------------------------- */
+  --font-smooth: antialiased;
+  --font-feature-zero: on;
+}
+
+/* ============================================================================
+   3. GLOBAL BASE STYLES
+   ============================================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-body);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ts-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================================
+   4. HEADING STYLES
+   ============================================================================ */
+
+h1 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-h1);
+  line-height: var(--lh-h1);
+  letter-spacing: var(--ts-h1);
+  text-transform: uppercase;
+  font-variation-settings: "wght" var(--fw-h1), "opsz" var(--opsz-h1);
+  font-feature-settings: "zero" var(--font-feature-zero);
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-h2);
+  line-height: var(--lh-h2);
+  letter-spacing: var(--ts-h2);
+  text-transform: uppercase;
+  font-variation-settings: "wght" var(--fw-h2), "opsz" var(--opsz-h2);
+  font-feature-settings: "zero" var(--font-feature-zero);
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-h3);
+  line-height: var(--lh-h3);
+  letter-spacing: var(--ts-h3);
+  text-transform: uppercase;
+  font-variation-settings: "wght" var(--fw-h3), "opsz" var(--opsz-h3);
+  font-feature-settings: "zero" var(--font-feature-zero);
+}
+
+h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  font-variation-settings: "wght" 600, "opsz" 0.5;
+  font-feature-settings: "zero" var(--font-feature-zero);
+}
+
+/* ============================================================================
+   5. COMPONENT-SPECIFIC TYPOGRAPHY CLASSES
+   ============================================================================ */
+
+/* Hero Title - Largest Display */
+.hero-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-hero);
+  line-height: var(--lh-hero);
+  letter-spacing: var(--ts-hero);
+  text-transform: uppercase;
+  font-variation-settings: "wght" var(--fw-hero), "opsz" var(--opsz-hero);
+  font-feature-settings: "zero" var(--font-feature-zero);
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Page Title */
+.page-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-title);
+  font-weight: var(--fw-title);
+  line-height: var(--lh-title);
+  letter-spacing: var(--ts-title);
+  text-transform: uppercase;
+  font-variation-settings: "wght" var(--fw-title), "opsz" var(--opsz-title);
+  font-feature-settings: "zero" var(--font-feature-zero);
+}
+
+/* Navigation Items */
+.nav-item {
+  font-family: var(--font-display);
+  font-size: var(--fs-nav);
+  font-weight: var(--fw-nav);
+  line-height: var(--lh-nav);
+  letter-spacing: var(--ts-nav);
+  text-transform: uppercase;
+  font-variation-settings: "wght" var(--fw-nav), "opsz" var(--opsz-nav);
+  font-feature-settings: "zero" var(--font-feature-zero);
+  font-kerning: normal;
+}
+
+/* UI Label - Small Uppercase */
+.label {
+  font-family: var(--font-ui);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-label);
+  line-height: var(--lh-label);
+  letter-spacing: var(--ts-label);
+  text-transform: uppercase;
+  color: var(--color-meta-gray);
+}
+
+/* Body Paragraph */
+.body-text {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-body);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ts-body);
+  font-variation-settings: "wght" var(--fw-body), "opsz" var(--opsz-body);
+}
+
+/* Caption Text */
+.caption {
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-caption);
+  line-height: var(--lh-caption);
+  letter-spacing: var(--ts-caption);
+  color: var(--color-meta-gray);
+}
+
+/* Monospace Code/Label */
+code, pre, .font-mono {
+  font-family: var(--font-ui);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-label);
+  letter-spacing: var(--ts-label);
+}
+
+/* ============================================================================
+   6. LINK & BUTTON STYLES
+   ============================================================================ */
+
+a {
+  font-family: inherit;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ============================================================================
+   7. INTERACTIVE VARIATIONS (Hover, Focus, Active)
+   ============================================================================ */
+
+.hero-title:hover {
+  font-variation-settings: "wght" var(--fw-hero), "opsz" 0.5;
+  transition: font-variation-settings 0.3s ease;
+}
+
+.nav-item:hover {
+  font-variation-settings: "wght" 750, "opsz" 0.5;
+  transition: font-variation-settings 0.3s ease;
+}
+
+/* ============================================================================
+   8. SELECTION & ACCESSIBILITY
+   ============================================================================ */
+
+::selection {
+  background-color: var(--color-accent-neon);
+  color: var(--color-bg);
+}
+
+::-moz-selection {
+  background-color: var(--color-accent-neon);
+  color: var(--color-bg);
+}
+
+/* ============================================================================
+   9. SCROLLBAR STYLING
+   ============================================================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+/* ============================================================================
+   10. RESPONSIVE ADJUSTMENTS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  body {
+    font-size: clamp(0.9rem, 1vw, 1rem);
+    line-height: 1.5;
+  }
+
+  h1, .hero-title {
+    font-size: clamp(3rem, 8vw, 7rem);
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  h3 {
+    font-size: clamp(1rem, 2.5vw, 2rem);
+  }
+
+  .nav-item {
+    font-size: clamp(1.5rem, 4vw, 4rem);
+  }
+
+  .label {
+    font-size: clamp(0.6rem, 0.75vw, 0.75rem);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  h1, .hero-title {
+    font-size: clamp(2rem, 6vw, 4rem);
+    letter-spacing: -0.06em;
+  }
+
+  h2 {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+  }
+
+  .nav-item {
+    font-size: clamp(1rem, 3vw, 2.5rem);
+  }
+}
+
+/* ============================================================================
+   11. UTILITY CLASSES
+   ============================================================================ */
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-bold {
+  font-weight: 700;
+  color: var(--color-text-bold);
+}
+
+.text-light {
+  font-weight: 400;
+}
+
+.text-medium {
+  font-weight: 500;
+}
+
+.tracking-tight {
+  letter-spacing: -0.08em;
+}
+
+.tracking-normal {
+  letter-spacing: 0em;
+}
+
+.tracking-wide {
+  letter-spacing: 0.04em;
+}
+
+.line-height-tight {
+  line-height: 0.82;
+}
+
+.line-height-normal {
+  line-height: 1.6;
+}
+
+/* ============================================================================
+   12. VARIANT COMBINATIONS (OPS + WEIGHT PRESETS)
+   ============================================================================ */
+
+/* Maximum inktrap effect (smallest opsz) */
+.variant-max-inktrap {
+  font-variation-settings: "wght" 800, "opsz" 0.5;
+}
+
+/* Medium inktrap (balanced) */
+.variant-mid-inktrap {
+  font-variation-settings: "wght" 700, "opsz" 4;
+}
+
+/* Minimum inktrap (nearly normal) */
+.variant-min-inktrap {
+  font-variation-settings: "wght" 600, "opsz" 72;
+}
+
+/* ============================================================================
+   13. DARK MODE OVERRIDES (if needed)
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: var(--color-text);
+    background-color: var(--color-bg);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    color: var(--color-text-dark);
+    background-color: var(--color-bg-light);
+  }
+}
+
+/* ============================================================================
+   14. FALLBACK FONTS
+   ============================================================================ */
+
+/* If custom fonts fail to load, these will be used */
+@supports not (font-variation-settings: "opsz" 0.5) {
+  .hero-title,
+  .page-title,
+  .nav-item,
+  h1, h2, h3 {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700;
+  }
+}

@@ -97,42 +97,42 @@ const WhoIsHe: React.FC = () => {
 
         <div className="w-[55%] pl-24 pr-12 py-24 flex flex-col gap-24">
           <article className="who-block ml-8 max-w-[420px]">
-            <p className="text-sm uppercase tracking-[0.18em] opacity-70">01. who is he</p>
-            <h3 className="mt-4 text-[3rem] font-black leading-none">A. A curious builder</h3>
-            <p className="mt-5 text-lg leading-relaxed opacity-80">
+            <p className="caption opacity-70">01. who is he</p>
+            <h3 className="mt-4 h3">A. A curious builder</h3>
+            <p className="mt-5 body-text opacity-80">
               A creative developer who blends visual storytelling with interactive web systems.
             </p>
           </article>
 
           <article className="who-block ml-24 max-w-[520px] rounded-[36px] border-2 border-black px-8 py-6 bg-white/70 backdrop-blur-sm">
-            <p className="text-sm uppercase tracking-[0.18em] opacity-70">02. i like</p>
-            <h3 className="mt-3 text-[2.6rem] font-black leading-none">B. Sound, rhythm, details</h3>
-            <p className="mt-4 text-base leading-relaxed opacity-80">
+            <p className="caption opacity-70">02. i like</p>
+            <h3 className="mt-3 h3">B. Sound, rhythm, details</h3>
+            <p className="mt-4 body-text opacity-80">
               Crafting interfaces that feel alive, with motion that supports narrative and purpose.
             </p>
             <div className="mt-6 h-[260px] rounded-[24px] border border-black/20 bg-[#d7d5cf] flex items-center justify-center">
-              <span className="text-2xl font-bold tracking-wide">HEADPHONES</span>
+              <span className="label text-2xl tracking-wide">HEADPHONES</span>
             </div>
           </article>
 
           <article className="who-block ml-10 max-w-[460px]">
-            <p className="text-sm uppercase tracking-[0.18em] opacity-70">03. i do</p>
-            <h3 className="mt-3 text-[2.8rem] font-black leading-none">C. Design + code</h3>
-            <p className="mt-4 text-lg leading-relaxed opacity-80">
+            <p className="caption opacity-70">03. i do</p>
+            <h3 className="mt-3 h3">C. Design + code</h3>
+            <p className="mt-4 body-text opacity-80">
               Building performant, expressive digital products from concept to deployment.
             </p>
             <div className="mt-8 h-[260px] rounded-[28px] border border-black/25 bg-[#d2cfc9] flex items-center justify-center">
-              <span className="text-2xl font-bold tracking-wide">SKULL</span>
+              <span className="label text-2xl tracking-wide">SKULL</span>
             </div>
           </article>
 
           <article className="who-block ml-28 max-w-[500px] pb-24">
-            <p className="text-sm uppercase tracking-[0.18em] opacity-70">04. topics</p>
+            <p className="caption opacity-70">04. topics</p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <span className="px-4 py-2 border border-black rounded-full text-sm uppercase tracking-widest">webgl</span>
-              <span className="px-4 py-2 border border-black rounded-full text-sm uppercase tracking-widest">motion</span>
-              <span className="px-4 py-2 border border-black rounded-full text-sm uppercase tracking-widest">branding</span>
-              <span className="px-4 py-2 border border-black rounded-full text-sm uppercase tracking-widest">ui systems</span>
+              <span className="px-4 py-2 border border-black rounded-full label">webgl</span>
+              <span className="px-4 py-2 border border-black rounded-full label">motion</span>
+              <span className="px-4 py-2 border border-black rounded-full label">branding</span>
+              <span className="px-4 py-2 border border-black rounded-full label">ui systems</span>
             </div>
           </article>
         </div>
