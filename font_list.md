@@ -1,7 +1,6 @@
-AVAILABLE FONTS IN THE PROJECT
-================================
+# Available Fonts in the Project
 
-ABC Whyte Family (Regular):
+## ABC Whyte Family (Regular)
 - ABCWhyte-Black-Trial.otf
 - ABCWhyte-BlackItalic-Trial.otf
 - ABCWhyte-Bold-Trial.otf
@@ -24,7 +23,7 @@ ABC Whyte Family (Regular):
 - ABCWhyte-ThinItalic-Trial.otf
 - ABCWhyteVariable-Trial.ttf
 
-ABC Whyte Inktrap Family:
+## ABC Whyte Inktrap Family
 - ABCWhyteInktrap-Black-Trial-1.otf
 - ABCWhyteInktrap-BlackItalic-Trial-1.otf
 - ABCWhyteInktrap-Bold-Trial-1.otf
@@ -47,7 +46,7 @@ ABC Whyte Inktrap Family:
 - ABCWhyteInktrap-ThinItalic-Trial-1.otf
 - ABCWhyteInktrapVariable-Trial-1.ttf
 
-ABC Whyte Mono Family:
+## ABC Whyte Mono Family
 - ABCWhyteMono-Black-Trial.otf
 - ABCWhyteMono-BlackItalic-Trial.otf
 - ABCWhyteMono-Bold-Trial.otf
@@ -70,7 +69,7 @@ ABC Whyte Mono Family:
 - ABCWhyteMono-ThinItalic-Trial.otf
 - ABCWhyteMonoVariable-Trial.ttf
 
-ABC Whyte Mono Inktrap Family:
+## ABC Whyte Mono Inktrap Family
 - ABCWhyteMonoInktrap-Black-Trial.otf
 - ABCWhyteMonoInktrap-BlackItalic-Trial.otf
 - ABCWhyteMonoInktrap-Bold-Trial.otf
@@ -93,7 +92,7 @@ ABC Whyte Mono Inktrap Family:
 - ABCWhyteMonoInktrap-ThinItalic-Trial.otf
 - ABCWhyteMonoInktrapVariable-Trial.ttf
 
-ABC Whyte Semi-Mono Family:
+## ABC Whyte Semi-Mono Family
 - ABCWhyteSemi-Mono-Black-Trial.otf
 - ABCWhyteSemi-Mono-BlackItalic-Trial.otf
 - ABCWhyteSemi-Mono-Bold-Trial.otf
@@ -115,7 +114,7 @@ ABC Whyte Semi-Mono Family:
 - ABCWhyteSemi-Mono-Thin-Trial.otf
 - ABCWhyteSemi-Mono-ThinItalic-Trial.otf
 
-ABC Whyte Semi-Mono Inktrap Family:
+## ABC Whyte Semi-Mono Inktrap Family
 - ABCWhyteSemi-MonoInktrap-Black-Trial.otf
 - ABCWhyteSemi-MonoInktrap-BlackItalic-Trial.otf
 - ABCWhyteSemi-MonoInktrap-Bold-Trial.otf
@@ -137,15 +136,15 @@ ABC Whyte Semi-Mono Inktrap Family:
 - ABCWhyteSemi-MonoInktrap-Thin-Trial.otf
 - ABCWhyteSemi-MonoInktrap-ThinItalic-Trial.otf
 
-Variable Fonts:
+## Variable Fonts
 - ABCWhytePlusVariable-Trial.ttf
 
-Other Fonts:
+## Other Fonts
 - MaragsaDisplay-GO6PD.otf
 
-Documentation & License:
+## Documentation & License
 - Befonts-License.txt
 - info.txt
 
-=================================
-Total: 158 font files
+
+**Total: 158 font files**
